@@ -15,7 +15,12 @@
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/schoolSpinner"
+    android:id="@+id/schoolSpinner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/areaSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -3,15 +3,19 @@ package com.example.dimitri.cheapclass;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.dimitri.cheapclass.data.Area;
+import com.example.dimitri.cheapclass.data.AreaDataProvider;
 import com.example.dimitri.cheapclass.data.DummyMajorDataProvider;
 import com.example.dimitri.cheapclass.data.DummySchoolDataProvider;
+import com.example.dimitri.cheapclass.data.LocalAreaDataProvider;
+import com.example.dimitri.cheapclass.data.Major;
 import com.example.dimitri.cheapclass.data.MajorDataProvider;
-import com.example.dimitri.cheapclass.data.MajorSpinnerAdapter;
+import com.example.dimitri.cheapclass.data.School;
 import com.example.dimitri.cheapclass.data.SchoolDataProvider;
-import com.example.dimitri.cheapclass.data.SchoolSpinnerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,12 +29,16 @@ public class MajorAndSchoolSelectActivity extends AppCompatActivity {
 
     private MajorDataProvider mMajors;
     private SchoolDataProvider mSchools;
+    private AreaDataProvider mAreas;
 
     @BindView(R.id.majorSpinner)
     Spinner majorSpinner;
 
     @BindView(R.id.schoolSpinner)
     Spinner schoolSpinner;
+
+    @BindView(R.id.areaSpinner)
+    Spinner areaSpinner;
 
     @BindView(R.id.nextButton)
     Button nextButton;
@@ -39,20 +47,25 @@ public class MajorAndSchoolSelectActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_major_and_school_select);
+        setContentView(R.layout.activity_major_school_and_area_select);
 
         mMajors = new DummyMajorDataProvider();
         mSchools = new DummySchoolDataProvider();
+        mAreas = new LocalAreaDataProvider();
 
         ButterKnife.bind(this);
 
-        MajorSpinnerAdapter majorSpinnerAdapter = new MajorSpinnerAdapter(
-                this, R.layout.spinner_item_major_and_school, mMajors.getAllMajors());
-        majorSpinner.setAdapter(majorSpinnerAdapter);
+        ArrayAdapter<Major> majorAdapter = new ArrayAdapter<Major>(this, // create custom adapter class to use custom layout.
+                android.R.layout.simple_spinner_item, mMajors.getAllMajors());
+        majorSpinner.setAdapter(majorAdapter);
 
-        SchoolSpinnerAdapter schoolSpinnerAdapter = new SchoolSpinnerAdapter(
-                this, R.layout.spinner_item_major_and_school, mSchools.getAllSchools());
-        schoolSpinner.setAdapter(majorSpinnerAdapter);
+        ArrayAdapter<School> schoolAdapter = new ArrayAdapter<School>(this,
+                android.R.layout.simple_spinner_item, mSchools.getAllSchools());
+        schoolSpinner.setAdapter(schoolAdapter);
+
+        ArrayAdapter<Area> areaAdapter = new ArrayAdapter<Area>(this,
+                android.R.layout.simple_spinner_item, mAreas.getAllAreas());
+        areaSpinner.setAdapter(areaAdapter);
     }
 
     @OnClick(R.id.nextButton)
