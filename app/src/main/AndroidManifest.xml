@@ -9,7 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MajorAndSchoolSelectActivity">
+        <activity android:name=".MajorSchoolAndAreaSelectActivityDEPRECATED">
+        </activity>
+        <activity
+            android:name=".CourseSelectActivity"
+            android:label="@string/title_activity_course_select"
+            android:parentActivityName=".MajorSchoolAndAreaSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.dimitri.cheapclass.MajorSchoolAndAreaSelectActivity" />
+        </activity>
+        <activity
+            android:name=".EquivalencySelect"
+            android:label="@string/title_activity_equivalency_select"
+            android:parentActivityName=".CourseSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.dimitri.cheapclass.CourseSelectActivity" />
+        </activity>
+        <activity
+            android:name=".MajorSchoolAndAreaSelectActivity"
+            android:label="@string/title_activity_major_school_and_area_select"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,4 +40,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

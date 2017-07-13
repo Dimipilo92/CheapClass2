@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -19,18 +20,8 @@ import java.util.List;
  */
 
 
-/*
-Spinner spinner = (Spinner) findViewById(R.id.spinner);
-ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-        R.array.planets_array, android.R.layout.simple_spinner_item);
-adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-spinner.setAdapter(adapter);
- */
 
-
-
-
-public class SchoolSpinnerAdapter extends ArrayAdapter<School> { // ArrayAdapter<School>
+public class SchoolSpinnerAdapter extends ArrayAdapter<School>{ // ArrayAdapter<School>
     private Context mContext;
     private List<School> mSchools;
 
@@ -51,7 +42,7 @@ public class SchoolSpinnerAdapter extends ArrayAdapter<School> { // ArrayAdapter
 
         // this shoots a warning about non-conditional inflation
         TextView textView = (TextView) convertView.findViewById(R.id.textView);
-        textView.setText(getItem(position).getName());
+        textView.setText(mSchools.get(position).getName());
 
         return convertView;
     }
@@ -67,7 +58,7 @@ public class SchoolSpinnerAdapter extends ArrayAdapter<School> { // ArrayAdapter
         }
 
         TextView textView = (TextView) convertView.findViewById(R.id.textView);
-        textView.setText(getItem(position).getName());
+        textView.setText(mSchools.get(position).getName());
         return convertView;
     }
 }

@@ -14,13 +14,7 @@ public class DummySchoolDataProvider implements SchoolDataProvider {
 
         mSchools = new ArrayList<School>() {{
             add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
-            add(new School("PCC", "Pasadena City College"));
+            add(new School("MTAC", "Mount San Antonio College"));
         }};
     }
 

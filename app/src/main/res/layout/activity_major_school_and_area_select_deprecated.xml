@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+</LinearLayout>
+
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/mytext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Major and Transfer School"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/majorAutoCompleteView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/major_prompt"/>
+
+    <Spinner
+        android:id="@+id/schoolSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/school_prompt"/>
+
+    <Spinner
+        android:id="@+id/areaSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/area_prompt"/>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button"/>
+
+</LinearLayout> -->

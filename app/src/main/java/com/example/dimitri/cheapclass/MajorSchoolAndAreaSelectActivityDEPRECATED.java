@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 
@@ -25,14 +26,14 @@ import butterknife.OnClick;
  * Created by Dimitri on 7/8/2017.
  */
 
-public class MajorAndSchoolSelectActivity extends AppCompatActivity {
+public class MajorSchoolAndAreaSelectActivityDEPRECATED extends AppCompatActivity {
 
     private MajorDataProvider mMajors;
     private SchoolDataProvider mSchools;
     private AreaDataProvider mAreas;
 
-    @BindView(R.id.majorSpinner)
-    Spinner majorSpinner;
+    @BindView(R.id.majorAutoCompleteView)
+    AutoCompleteTextView majorAutoCompleteView;
 
     @BindView(R.id.schoolSpinner)
     Spinner schoolSpinner;
@@ -47,7 +48,7 @@ public class MajorAndSchoolSelectActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_major_school_and_area_select);
+        setContentView(R.layout.activity_major_school_and_area_select_deprecated);
 
         mMajors = new DummyMajorDataProvider();
         mSchools = new DummySchoolDataProvider();
@@ -57,7 +58,7 @@ public class MajorAndSchoolSelectActivity extends AppCompatActivity {
 
         ArrayAdapter<Major> majorAdapter = new ArrayAdapter<Major>(this, // create custom adapter class to use custom layout.
                 android.R.layout.simple_spinner_item, mMajors.getAllMajors());
-        majorSpinner.setAdapter(majorAdapter);
+        majorAutoCompleteView.setAdapter(majorAdapter);
 
         ArrayAdapter<School> schoolAdapter = new ArrayAdapter<School>(this,
                 android.R.layout.simple_spinner_item, mSchools.getAllSchools());
@@ -66,10 +67,29 @@ public class MajorAndSchoolSelectActivity extends AppCompatActivity {
         ArrayAdapter<Area> areaAdapter = new ArrayAdapter<Area>(this,
                 android.R.layout.simple_spinner_item, mAreas.getAllAreas());
         areaSpinner.setAdapter(areaAdapter);
+
+    }
+
+
+    @OnClick(R.id.majorAutoCompleteView)
+    public void onMajorAutoCompleteViewClick (){
+        majorAutoCompleteView.showDropDown();
+    }
+
+    @OnClick(R.id.schoolSpinner)
+    public void onSchoolAutoCompleteViewClick (){
+        majorAutoCompleteView.showDropDown();
+    }
+
+    @OnClick(R.id.areaSpinner)
+    public void onAreaAutoCompleteViewClick (){
+        majorAutoCompleteView.showDropDown();
     }
 
     @OnClick(R.id.nextButton)
     public void onNextButtonClick(){
-
+        majorAutoCompleteView.getText();
+        schoolSpinner.getSelectedItem();
+        areaSpinner.getSelectedItem();
     }
 }
