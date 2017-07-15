@@ -8,18 +8,18 @@ import java.util.List;
  */
 
 public class DummySchoolDataProvider implements SchoolDataProvider {
-    ArrayList<School> mSchools;
+    ArrayList<School> schools;
 
     public DummySchoolDataProvider() {
 
-        mSchools = new ArrayList<School>() {{
+        schools = new ArrayList<School>() {{
             add(new School("PCC", "Pasadena City College"));
-            add(new School("MTAC", "Mount San Antonio College"));
+            add(new School("MTSAC", "Mount San Antonio College"));
         }};
     }
 
     @Override
     public List<School> getAllSchools() {
-        return mSchools;
+        return schools;
     }
 }

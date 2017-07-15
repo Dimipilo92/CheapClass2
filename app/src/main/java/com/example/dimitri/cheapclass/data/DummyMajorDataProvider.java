@@ -9,11 +9,11 @@ import java.util.List;
 
 public class DummyMajorDataProvider implements MajorDataProvider {
 
-    private List<Major> mMajors;
+    private List<Major> majors;
 
     public DummyMajorDataProvider() {
 
-        mMajors = new ArrayList<Major>() {{
+        majors = new ArrayList<Major>() {{
             add(new Major("CS", "Computer Science"));
             add(new Major("CS", "Computer Science"));
             add(new Major("CS", "Computer Science"));
@@ -27,6 +27,6 @@ public class DummyMajorDataProvider implements MajorDataProvider {
 
     @Override
     public List<Major> getAllMajors() {
-        return mMajors;
+        return majors;
     }
 }

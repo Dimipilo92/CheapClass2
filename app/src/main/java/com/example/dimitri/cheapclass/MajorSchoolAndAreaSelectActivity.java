@@ -1,5 +1,6 @@
 package com.example.dimitri.cheapclass;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,13 +25,12 @@ import com.example.dimitri.cheapclass.data.SchoolDataProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemClick;
 
 public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
 
-    private MajorDataProvider mMajors;
-    private SchoolDataProvider mSchools;
-    private AreaDataProvider mAreas;
+    private MajorDataProvider majorDataProvider;
+    private SchoolDataProvider schoolDataProvider;
+    private AreaDataProvider areaDataProvider;
 
     @BindView(R.id.majorAutoCompleteView)
     AutoCompleteTextView majorAutoCompleteView;
@@ -51,6 +51,7 @@ public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,23 +60,24 @@ public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
 
-        mMajors = new DummyMajorDataProvider();
-        mSchools = new DummySchoolDataProvider();
-        mAreas = new LocalAreaDataProvider();
+        majorDataProvider = new DummyMajorDataProvider();
+        schoolDataProvider = new DummySchoolDataProvider();
+        areaDataProvider = new LocalAreaDataProvider();
 
         ButterKnife.bind(this);
 
         ArrayAdapter<Major> majorAdapter = new ArrayAdapter<Major>(this, // create custom adapter class to use custom layout.
-                android.R.layout.simple_spinner_item, mMajors.getAllMajors());
+                android.R.layout.simple_spinner_item, majorDataProvider.getAllMajors());
         majorAutoCompleteView.setAdapter(majorAdapter);
 
         ArrayAdapter<School> schoolAdapter = new ArrayAdapter<School>(this,
-                android.R.layout.simple_spinner_item, mSchools.getAllSchools());
+                android.R.layout.simple_spinner_item, schoolDataProvider.getAllSchools());
         schoolSpinner.setAdapter(schoolAdapter);
 
         ArrayAdapter<Area> areaAdapter = new ArrayAdapter<Area>(this,
-                android.R.layout.simple_spinner_item, mAreas.getAllAreas());
+                android.R.layout.simple_spinner_item, areaDataProvider.getAllAreas());
         areaSpinner.setAdapter(areaAdapter);
 
     }
@@ -87,9 +89,15 @@ public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
 
     @OnClick(R.id.nextButton)
     public void onNextButtonClick(){
-        //majorAutoCompleteView.getText();
-        //schoolSpinner.getSelectedItem();
-        //areaSpinner.getSelectedItem();
-    }
 
+        //String majorName = (String) majorAutoCompleteView.getText();
+        School school = (School)schoolSpinner.getSelectedItem();
+        Area area = (Area) areaSpinner.getSelectedItem();
+
+        Intent i = new Intent(this, CourseSelectActivity.class);
+        i.putExtra("major","CS");
+        i.putExtra("school",school.getId());
+        i.putExtra("area",area.getId());
+        startActivity(i);
+    }
 }

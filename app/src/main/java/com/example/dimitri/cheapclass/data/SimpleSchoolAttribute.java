@@ -6,32 +6,32 @@ package com.example.dimitri.cheapclass.data;
 
 public abstract class SimpleSchoolAttribute {
 
-    private String mCode;
-    private String mName;
-    SimpleSchoolAttribute(String code, String name){
-        mCode = code;
-        mName = name;
+    private String id;
+    private String name;
+    SimpleSchoolAttribute(String id, String name){
+        this.id = id;
+        this.name = name;
     }
 
-    public String getCode() {
-        return mCode;
+    public String getId() {
+        return id;
     }
 
-    public void setCode(String mCode) {
-        this.mCode = mCode;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
-    public void setName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return mName;
+        return name;
     }
 
 }

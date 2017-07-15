@@ -8,11 +8,10 @@ import java.util.List;
  */
 
 public class LocalAreaDataProvider implements AreaDataProvider {
-    ArrayList<Area> mAreas;
-
+    ArrayList<Area> areas;
     public LocalAreaDataProvider() {
 
-        mAreas = new ArrayList<Area>() {{
+        areas = new ArrayList<Area>() {{
             add(new Area("all","All"));
             add(new Area("core","Major-Core"));
             add(new Area("support","Major-Support"));
@@ -34,6 +33,6 @@ public class LocalAreaDataProvider implements AreaDataProvider {
     }
 
     public List<Area> getAllAreas() {
-        return mAreas;
+        return areas;
     }
 }

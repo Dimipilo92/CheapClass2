@@ -31,20 +31,20 @@ spinner.setAdapter(adapter);
 
 
 public class MajorSpinnerAdapter extends ArrayAdapter<Major> { // ArrayAdapter<Major>
-    private Context mContext;
-    private List<Major> mMajors;
+    private Context context;
+    private List<Major> majors;
 
     public MajorSpinnerAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Major> objects){
         super(context, resource,objects);
-        mContext = context;
-        mMajors = objects;
+        this.context = context;
+        majors = objects;
     }
 
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if(convertView == null){
-            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.spinner_item_major_and_school, parent, false);
         }
@@ -61,7 +61,7 @@ public class MajorSpinnerAdapter extends ArrayAdapter<Major> { // ArrayAdapter<M
     public View getDropDownView(int position, @Nullable View convertView,
                                 @NonNull ViewGroup parent) {
         if(convertView == null){
-            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.spinner_item_major_and_school, parent, false);
         }

@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -22,27 +21,27 @@ import java.util.List;
 
 
 public class SchoolSpinnerAdapter extends ArrayAdapter<School>{ // ArrayAdapter<School>
-    private Context mContext;
-    private List<School> mSchools;
+    private Context context;
+    private List<School> schools;
 
     public SchoolSpinnerAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<School> objects){
         super(context, resource,objects);
-        mContext = context;
-        mSchools = objects;
+        this.context = context;
+        schools = objects;
     }
 
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if(convertView == null){
-            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.spinner_item_major_and_school, parent, false);
         }
 
         // this shoots a warning about non-conditional inflation
         TextView textView = (TextView) convertView.findViewById(R.id.textView);
-        textView.setText(mSchools.get(position).getName());
+        textView.setText(schools.get(position).getName());
 
         return convertView;
     }
@@ -52,13 +51,13 @@ public class SchoolSpinnerAdapter extends ArrayAdapter<School>{ // ArrayAdapter<
     public View getDropDownView(int position, @Nullable View convertView,
                                 @NonNull ViewGroup parent) {
         if(convertView == null){
-            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.spinner_item_major_and_school, parent, false);
         }
 
         TextView textView = (TextView) convertView.findViewById(R.id.textView);
-        textView.setText(mSchools.get(position).getName());
+        textView.setText(schools.get(position).getName());
         return convertView;
     }
 }

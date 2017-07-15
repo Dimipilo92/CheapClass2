@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/file"
+        android:title="@string/app_name" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/placeholder1"
+                android:title="Something" />
+            <item android:id="@+id/placeholder2"
+                android:title="Something" />
+        </menu>
+    </item>
+</menu>

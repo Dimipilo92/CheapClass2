@@ -5,10 +5,27 @@ package com.example.dimitri.cheapclass.data;
  */
 
 public class Course {
+
+    private String id;
     private String code;
     private String name;
     private int units;
     private String description;
+
+    public Course(String code, String name, int units, String description) {
+        this.code = code;
+        this.name = name;
+        this.units = units;
+        this.description = description;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCode() {
         return code;

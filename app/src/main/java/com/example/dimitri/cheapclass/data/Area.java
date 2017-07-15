@@ -5,7 +5,7 @@ package com.example.dimitri.cheapclass.data;
  */
 
 public class Area extends SimpleSchoolAttribute {
-    public Area(String code, String name) {
-         super(code,name);
+    public Area(String id, String name) {
+         super(id,name);
     }
 };

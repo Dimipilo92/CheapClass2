@@ -4,8 +4,9 @@
     <string name="major_prompt">Major</string>
     <string name="school_prompt">Transfer School</string>
     <string name="area_prompt">Area</string>
-    <string name="title_activity_course_select">CourseSelectActivity</string>
-    <string name="title_activity_equivalency_select">EquivalencySelect</string>
-    <string name="title_activity_major_school_and_area_select">MajorSchoolAndAreaSelectActivity
-    </string>
+    <string name="search_prompt">Search for Class</string>
+    <string name="title_activity_course_select">CheapClass</string>
+    <string name="title_activity_equivalency_select">Select Equivalent </string>
+    <string name="title_activity_major_school_and_area_select">Select Course</string>
+
 </resources>
