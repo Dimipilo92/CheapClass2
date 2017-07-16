@@ -12,7 +12,7 @@ public class Course {
     private int units;
     private String description;
 
-    public Course(String code, String name, int units, String description) {
+    public Course(String id, String code, String name, int units, String description) {
         this.code = code;
         this.name = name;
         this.units = units;

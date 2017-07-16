@@ -24,7 +24,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
-public class CourseSelectActivity extends AppCompatActivity {
+public class CourseSelectActivity extends AppCompatActivity
+        implements SearchView.OnQueryTextListener{
 
     
     CourseDataProvider courses;
@@ -33,6 +34,8 @@ public class CourseSelectActivity extends AppCompatActivity {
     String school;
 
     SearchView searchView;
+
+    CourseSelectListAdapter courseSelectListAdapter;
 
     @BindView(R.id.courseSelectList)
     ListView courseSelectList;
@@ -62,7 +65,7 @@ public class CourseSelectActivity extends AppCompatActivity {
         courses = new DummyCourseDataProvider();
 
 
-        CourseSelectListAdapter courseSelectListAdapter = new CourseSelectListAdapter(
+        courseSelectListAdapter = new CourseSelectListAdapter(
                 this, R.layout.listview_item_course, courses.getCoursesInArea(major, area));
         courseSelectList.setAdapter(courseSelectListAdapter);
 
@@ -81,9 +84,20 @@ public class CourseSelectActivity extends AppCompatActivity {
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setSubmitButtonEnabled(true);
-        //searchView.setOnQueryTextListener(this);
+        searchView.setOnQueryTextListener(this);
                 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        courseSelectListAdapter.getFilter().filter(newText);
+        return true;
     }
 
     @OnItemClick(R.id.courseSelectList)

@@ -13,9 +13,44 @@ public class DummyCourseDataProvider implements CourseDataProvider {
 
     public DummyCourseDataProvider(){
         courseList = new ArrayList<Course>(){{
-            add(new Course("CS311", "Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
+            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+
+
         }};
     }
 
