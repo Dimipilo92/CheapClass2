@@ -4,18 +4,16 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.example.dimitri.cheapclass.R;
+import com.example.dimitri.cheapclass.data.Course;
 import com.example.dimitri.cheapclass.data.CourseDataProvider;
 import com.example.dimitri.cheapclass.data.CourseSelectListAdapter;
 import com.example.dimitri.cheapclass.data.DummyCourseDataProvider;
@@ -27,18 +25,20 @@ import butterknife.OnItemClick;
 public class CourseSelectActivity extends AppCompatActivity
         implements SearchView.OnQueryTextListener{
 
-    
-    CourseDataProvider courses;
+    CourseDataProvider courseDataProvider;
+    CourseSelectListAdapter courseSelectListAdapter;
+
     String major;
     String area;
     String school;
 
     SearchView searchView;
 
-    CourseSelectListAdapter courseSelectListAdapter;
+    @BindView(R.id.courseSelectListView)
+    ListView courseSelectListView;
 
-    @BindView(R.id.courseSelectList)
-    ListView courseSelectList;
+    @BindView(R.id.emptyCourseSelectListView)
+    LinearLayout emptyCourseSelectListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +61,14 @@ public class CourseSelectActivity extends AppCompatActivity
 
         ButterKnife.bind(this);
 
-        getMetaData();
-        courses = new DummyCourseDataProvider();
+        initialize();
+        courseDataProvider = new DummyCourseDataProvider();
 
 
         courseSelectListAdapter = new CourseSelectListAdapter(
-                this, R.layout.listview_item_course, courses.getCoursesInArea(major, area));
-        courseSelectList.setAdapter(courseSelectListAdapter);
+                this, R.layout.listview_item_course, courseDataProvider.getCoursesInArea(major, area));
+        courseSelectListView.setAdapter(courseSelectListAdapter);
+        courseSelectListView.setEmptyView(emptyCourseSelectListView);
 
     }
 
@@ -100,19 +101,27 @@ public class CourseSelectActivity extends AppCompatActivity
         return true;
     }
 
-    @OnItemClick(R.id.courseSelectList)
-    public void onCourseSelectItemClick(){
-        Intent i = new Intent(this, EquivalencySelect.class);
-        //i.putExtra("major","CS");
-        //i.putExtra("school",school.getId());
-        //i.putExtra("area",area.getId());
+    @OnItemClick(R.id.courseSelectListView)
+    public void onCourseSelectItemClick(int position){
+        Intent i = new Intent(this, EquivalencySelectActivity.class);
+        Course selectedCourse = (Course) courseSelectListAdapter.getItem(position);
+        ((CheapClassData) this.getApplication()).setSelectedCourse(selectedCourse.getId());
         startActivity(i);
     }
 
     
-    private void getMetaData() {
-        major = "CS";
-        school = "PCC";
-        area = "A1";
+    private void initialize() {
+        major = ((CheapClassData) this.getApplication()).getMajor();
+        school = ((CheapClassData) this.getApplication()).getSchool();
+        area = ((CheapClassData) this.getApplication()).getArea();
     }
+
+    /*
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+        if (courseSelectListView != null) {
+            courseSelectListView.setEmptyView(emptyCourseSelectListView);
+        }
+    }*/
 }

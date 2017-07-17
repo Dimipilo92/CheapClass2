@@ -13,9 +13,24 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/courseSelectList"
+            android:id="@+id/courseSelectListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/emptyCourseSelectListView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_equivalency_list_message"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/assist_button"/>
+        </LinearLayout>
 
     </LinearLayout>
 

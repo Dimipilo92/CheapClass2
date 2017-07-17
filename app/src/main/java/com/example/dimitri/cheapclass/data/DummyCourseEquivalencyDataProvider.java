@@ -12,7 +12,7 @@ public class DummyCourseEquivalencyDataProvider implements CourseEquivalencyData
     private List<CourseEquivalency> equivalencies;
 
     public DummyCourseEquivalencyDataProvider() {
-        ArrayList<CourseEquivalency> cpp = new ArrayList<CourseEquivalency>(){{
+        equivalencies = new ArrayList<CourseEquivalency>(){{
             add(new DummyCourseEquivalency());
             add(new DummyCourseEquivalency());
             add(new DummyCourseEquivalency());
@@ -24,7 +24,7 @@ public class DummyCourseEquivalencyDataProvider implements CourseEquivalencyData
     }
 
     @Override
-    public List<CourseEquivalency> getCourseEquivalencies(String school, String course){
+    public List<CourseEquivalency> getCourseEquivalencies(String course){
         return equivalencies;
     }
 }

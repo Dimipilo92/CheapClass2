@@ -8,5 +8,7 @@
     <string name="title_activity_course_select">CheapClass</string>
     <string name="title_activity_equivalency_select">Select Equivalent </string>
     <string name="title_activity_major_school_and_area_select">Select Course</string>
+    <string name="empty_equivalency_list_message">Still can\'t find the course you\'re looking for?</string>
+    <string name="assist_button">Search On Assist</string>
 
 </resources>

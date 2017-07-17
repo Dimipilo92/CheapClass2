@@ -3,6 +3,7 @@
     package="com.example.dimitri.cheapclass">
 
     <application
+        android:name=".CheapClassData"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +31,7 @@
                 android:resource="@xml/searchable"/>
         </activity>
         <activity
-            android:name=".EquivalencySelect"
+            android:name=".EquivalencySelectActivity"
             android:label="@string/title_activity_equivalency_select"
             android:parentActivityName=".CourseSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">

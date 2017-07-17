@@ -32,6 +32,10 @@ public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
     private SchoolDataProvider schoolDataProvider;
     private AreaDataProvider areaDataProvider;
 
+    ArrayAdapter<Major> majorAdapter;
+    ArrayAdapter<School> schoolAdapter;
+    ArrayAdapter<Area> areaAdapter;
+
     @BindView(R.id.majorAutoCompleteView)
     AutoCompleteTextView majorAutoCompleteView;
 
@@ -62,24 +66,23 @@ public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
         });
         */
 
+        ButterKnife.bind(this);
+
         majorDataProvider = new DummyMajorDataProvider();
         schoolDataProvider = new DummySchoolDataProvider();
         areaDataProvider = new LocalAreaDataProvider();
 
-        ButterKnife.bind(this);
-
-        ArrayAdapter<Major> majorAdapter = new ArrayAdapter<Major>(this, // create custom adapter class to use custom layout.
+        majorAdapter = new ArrayAdapter<Major>(this, // create custom adapter class to use custom layout.
                 android.R.layout.simple_spinner_item, majorDataProvider.getAllMajors());
         majorAutoCompleteView.setAdapter(majorAdapter);
 
-        ArrayAdapter<School> schoolAdapter = new ArrayAdapter<School>(this,
+        schoolAdapter = new ArrayAdapter<School>(this,
                 android.R.layout.simple_spinner_item, schoolDataProvider.getAllSchools());
         schoolSpinner.setAdapter(schoolAdapter);
 
-        ArrayAdapter<Area> areaAdapter = new ArrayAdapter<Area>(this,
+        areaAdapter = new ArrayAdapter<Area>(this,
                 android.R.layout.simple_spinner_item, areaDataProvider.getAllAreas());
         areaSpinner.setAdapter(areaAdapter);
-
     }
 
     @OnClick(R.id.majorAutoCompleteView)
@@ -95,9 +98,9 @@ public class MajorSchoolAndAreaSelectActivity extends AppCompatActivity {
         Area area = (Area) areaSpinner.getSelectedItem();
 
         Intent i = new Intent(this, CourseSelectActivity.class);
-        i.putExtra("major","CS");
-        i.putExtra("school",school.getId());
-        i.putExtra("area",area.getId());
+        ((CheapClassData) this.getApplication()).setMajor("CS");
+        ((CheapClassData) this.getApplication()).setSchool(school.getId());
+        ((CheapClassData) this.getApplication()).setArea(area.getId());
         startActivity(i);
     }
 }

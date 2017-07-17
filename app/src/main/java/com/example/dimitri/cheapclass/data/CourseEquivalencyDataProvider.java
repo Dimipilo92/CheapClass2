@@ -7,5 +7,5 @@ import java.util.List;
  */
 
 public interface CourseEquivalencyDataProvider {
-    List<CourseEquivalency> getCourseEquivalencies(String school, String course);
+    List<CourseEquivalency> getCourseEquivalencies(String course);
 }
