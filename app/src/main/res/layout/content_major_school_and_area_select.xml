@@ -8,41 +8,58 @@
     tools:context="com.example.dimitri.cheapclass.MajorSchoolAndAreaSelectActivity"
     tools:showIn="@layout/activity_major_school_and_area_select">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/mytext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Major and Transfer School"/>
-
-        <AutoCompleteTextView
-            android:id="@+id/majorAutoCompleteView"
+        <ImageView
+            android:id="@+id/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/major_prompt"/>
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_main" />
 
-        <Spinner
-            android:id="@+id/schoolSpinner"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/school_prompt"/>
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
 
-        <Spinner
-            android:id="@+id/areaSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/area_prompt"/>
+            <AutoCompleteTextView
+                android:id="@+id/majorAutoCompleteView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/major_prompt"/>
 
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/next_button"/>
+            <Spinner
+                android:id="@+id/schoolSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/school_prompt"
+                app:contentInsetLeft="14dp"
+                app:contentInsetRight="14dp"/>
 
-    </LinearLayout>
+            <Spinner
+                android:id="@+id/areaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="@string/area_prompt"
+                app:contentInsetLeft="14dp"
+                app:contentInsetRight="14dp"/>
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_button"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>
