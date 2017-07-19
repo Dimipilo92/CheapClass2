@@ -6,8 +6,8 @@ import android.app.Application;
  * Created by Dimitri on 7/16/2017.
  */
 
-public class CheapClassData extends Application {
-    private static CheapClassData application;
+public class CourseBridgeData extends Application {
+    private static CourseBridgeData application;
 
     String major;
     String school;
@@ -15,7 +15,7 @@ public class CheapClassData extends Application {
     String selectedCourse;
 
 
-    public CheapClassData getInstance() {
+    public CourseBridgeData getInstance() {
         return application;
     }
 

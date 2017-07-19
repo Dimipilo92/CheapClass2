@@ -10,13 +10,14 @@ public class Course {
     private String code;
     private String name;
     private int units;
-    private String description;
 
-    public Course(String id, String code, String name, int units, String description) {
+    public Course(){}
+
+    public Course(String id, String code, String name, int units) {
+        this.id = id;
         this.code = code;
         this.name = name;
         this.units = units;
-        this.description = description;
     }
 
     public String getId() {
@@ -49,13 +50,5 @@ public class Course {
 
     public void setUnits(int units) {
         this.units = units;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

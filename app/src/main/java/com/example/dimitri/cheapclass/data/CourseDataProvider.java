@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface CourseDataProvider {
 
-    List<Course> getAllCourses(String major, String Area);
-    List<Course> getCoursesInArea(String major, String Area);
+    Course getCourse(String id);
+    List<Course> getAllCourses();
+    List<Course> getCoursesInMajor(String major);
+    List<Course> getCoursesInArea(String major, String area);
 }

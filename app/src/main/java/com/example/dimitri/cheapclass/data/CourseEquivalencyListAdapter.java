@@ -26,8 +26,8 @@ public class CourseEquivalencyListAdapter extends ArrayAdapter {
     LinearLayout cppCourseLayout;
     LinearLayout transferCourseLayout;
 
-    public CourseEquivalencyListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<CourseEquivalency> objects){
-        super(context, resource,objects);
+    public CourseEquivalencyListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<CourseEquivalency> objects) {
+        super(context, resource, objects);
         this.context = context;
         equivalencyList = objects;
     }
@@ -37,7 +37,7 @@ public class CourseEquivalencyListAdapter extends ArrayAdapter {
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-        if(convertView == null){
+        if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.listview_item_equivalency, parent, false);
         }
 
@@ -51,16 +51,16 @@ public class CourseEquivalencyListAdapter extends ArrayAdapter {
         List<Course> cppCourseList = equivalencyList.get(position).getCppCourses();
         List<Course> transferCourseList = equivalencyList.get(position).getTransferCourses();
 
-        inflateCourseLayout(layoutInflater,position,cppCourseList, cppCourseLayout);
-        inflateCourseLayout(layoutInflater,position,transferCourseList, transferCourseLayout);
+        inflateCourseLayout(layoutInflater, position, cppCourseList, cppCourseLayout);
+        inflateCourseLayout(layoutInflater, position, transferCourseList, transferCourseLayout);
 
         return convertView;
     }
 
 
     private void inflateCourseLayout(LayoutInflater layoutInflater,
-                                   int position, List<Course> courseList,
-                                   LinearLayout targetLayout) {
+                                     int position, List<Course> courseList,
+                                     LinearLayout targetLayout) {
         for (Course course : courseList) {
             View child = layoutInflater.inflate(R.layout.layout_item_equivalency_course, null);
 
@@ -70,5 +70,4 @@ public class CourseEquivalencyListAdapter extends ArrayAdapter {
             targetLayout.addView(child);
         }
     }
-
 }

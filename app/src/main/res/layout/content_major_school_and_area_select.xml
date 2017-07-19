@@ -14,7 +14,6 @@
         android:layout_height="match_parent" >
 
         <ImageView
-            android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
@@ -39,16 +38,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/school_prompt"
-                app:contentInsetLeft="14dp"
-                app:contentInsetRight="14dp"/>
+                android:contentInsetLeft="14dp"
+                android:contentInsetRight="14dp"/>
 
             <Spinner
                 android:id="@+id/areaSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="@string/area_prompt"
-                app:contentInsetLeft="14dp"
-                app:contentInsetRight="14dp"/>
+                android:contentInsetLeft="14dp"
+                android:contentInsetRight="14dp"/>
 
             <Button
                 android:id="@+id/nextButton"

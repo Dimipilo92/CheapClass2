@@ -10,55 +10,52 @@ import java.util.List;
 public class DummyCourseDataProvider implements CourseDataProvider {
 
     private ArrayList<Course> courseList;
-
     public DummyCourseDataProvider(){
         courseList = new ArrayList<Course>(){{
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
-            add(new Course("CS311", "CS 311","Languages and Automata",4,"It's Lit!"));
-            add(new Course("CS499","CS 499", "App Development",4,"Super Cray!"));
-            add(new Course("BIO111L","BIO 111L", "Biology Lab",4,"EASY A!"));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
+            add(new Course("CS311", "CS 311","Languages and Automata",4));
+            add(new Course("CS499","CS 499", "App Development",4));
+            add(new Course("BIO111L","BIO 111L", "Biology Lab",4));
 
 
         }};
     }
 
     @Override
-    public List<Course> getAllCourses(String School, String area){
+    public Course getCourse(String id){
+        return new Course("BIO111L","BIO 111L", "Biology Lab",4);
+    }
+
+    @Override
+    public List<Course> getAllCourses(){
         return courseList;
     }
 
     @Override
-    public List<Course> getCoursesInArea(String School, String area) { return courseList; }
+    public List<Course> getCoursesInMajor(String major){
+        return courseList;
+    }
+
+    @Override
+    public List<Course> getCoursesInArea(String major, String area) { return courseList; }
 }

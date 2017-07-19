@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">CheapClass</string>
+    <string name="app_name">CourseBridge</string>
     <string name="next_button">Next</string>
     <string name="major_prompt">Major</string>
     <string name="school_prompt">Transfer School</string>
     <string name="area_prompt">Area</string>
     <string name="search_prompt">Search for Class</string>
-    <string name="title_activity_course_select">CheapClass</string>
+    <string name="title_activity_course_select">Select Course</string>
     <string name="title_activity_equivalency_select">Select Equivalent </string>
-    <string name="title_activity_major_school_and_area_select">Select Course</string>
+    <string name="title_activity_major_school_and_area_select">CourseBridge</string>
     <string name="empty_equivalency_list_message">Still can\'t find the course you\'re looking for?</string>
     <string name="assist_button">Search On Assist</string>
 

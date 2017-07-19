@@ -3,8 +3,6 @@ package com.example.dimitri.cheapclass;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.dimitri.cheapclass.data.CourseEquivalencyDataProvider;
@@ -32,17 +30,6 @@ public class EquivalencySelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_equivalency_select);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ButterKnife.bind(this);
@@ -57,6 +44,6 @@ public class EquivalencySelectActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        selectedCourse = ((CheapClassData) this.getApplication()).getSelectedCourse();
+        selectedCourse = ((CourseBridgeData) this.getApplication()).getSelectedCourse();
     }
 }

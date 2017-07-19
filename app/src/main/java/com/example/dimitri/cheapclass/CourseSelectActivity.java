@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +18,16 @@ import com.example.dimitri.cheapclass.data.Course;
 import com.example.dimitri.cheapclass.data.CourseDataProvider;
 import com.example.dimitri.cheapclass.data.CourseSelectListAdapter;
 import com.example.dimitri.cheapclass.data.DummyCourseDataProvider;
+import com.example.dimitri.cheapclass.data.FirebaseCourseDataProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,17 +57,7 @@ public class CourseSelectActivity extends AppCompatActivity
         setContentView(R.layout.activity_course_select);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ButterKnife.bind(this);
@@ -66,7 +67,8 @@ public class CourseSelectActivity extends AppCompatActivity
 
 
         courseSelectListAdapter = new CourseSelectListAdapter(
-                this, R.layout.listview_item_course, courseDataProvider.getCoursesInArea(major, area));
+                this, R.layout.listview_item_course, courseDataProvider.getCoursesInMajor(major));
+
         courseSelectListView.setAdapter(courseSelectListAdapter);
         courseSelectListView.setEmptyView(emptyCourseSelectListView);
 
@@ -105,15 +107,15 @@ public class CourseSelectActivity extends AppCompatActivity
     public void onCourseSelectItemClick(int position){
         Intent i = new Intent(this, EquivalencySelectActivity.class);
         Course selectedCourse = (Course) courseSelectListAdapter.getItem(position);
-        ((CheapClassData) this.getApplication()).setSelectedCourse(selectedCourse.getId());
+        ((CourseBridgeData) this.getApplication()).setSelectedCourse(selectedCourse.getId());
         startActivity(i);
     }
 
     
     private void initialize() {
-        major = ((CheapClassData) this.getApplication()).getMajor();
-        school = ((CheapClassData) this.getApplication()).getSchool();
-        area = ((CheapClassData) this.getApplication()).getArea();
+        major = ((CourseBridgeData) this.getApplication()).getMajor();
+        school = ((CourseBridgeData) this.getApplication()).getSchool();
+        area = ((CourseBridgeData) this.getApplication()).getArea();
     }
 
     /*
